@@ -28,8 +28,12 @@ function onSearchButtonPressed (event) {
          </div>
           
           `
+
+          search_input.value=""
+
     }).fail(function(){
         dom_pokemon.innerHTML=`<h3 class="error-text">Sorry No Result Found ! </h3>`
+        search_input.value=""
     });
 
 
@@ -40,4 +44,7 @@ search_btn.addEventListener("click", function(event){
     onSearchButtonPressed(event)
 })
 
-
+search_input.addEventListener("keypress", function(event) {
+    if(event.which == 13)
+    onSearchButtonPressed(event)
+})
